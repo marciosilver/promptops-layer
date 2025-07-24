@@ -1,0 +1,88 @@
+<template>
+    <lightning-card title="Burlington Textiles Weaving Plant Generator" icon-name="standard:opportunity">
+        <div class="slds-p-horizontal_medium">
+            <!-- Informação da Oportunidade -->
+            <div class="slds-box slds-theme_shade slds-m-bottom_medium">
+                <p class="slds-text-body_regular">
+                    <strong>Oportunidade:</strong> Burlington Textiles Weaving Plant Generator<br/>
+                    <strong>Fase:</strong> Needs Analysis<br/>
+                    <strong>Valor:</strong> R$ 235.000,00
+                </p>
+            </div>
+
+            <!-- Estilo da Resposta -->
+            <lightning-combobox
+                name="estilo"
+                label="Estilo da resposta"
+                value={estiloResposta}
+                placeholder="Selecione um estilo"
+                options={estiloOptions}
+                onchange={handleEstiloChange}
+                required
+                class="slds-m-bottom_medium">
+            </lightning-combobox>
+
+            <!-- Campo de Prompt -->
+            <lightning-textarea
+                name="prompt"
+                label="Digite seu prompt"
+                value={promptTexto}
+                onchange={handlePromptChange}
+                placeholder="Ex: Comunique-se sobre a oportunidade..."
+                max-length="1000"
+                required
+                class="slds-m-bottom_medium">
+            </lightning-textarea>
+
+            <!-- Botões -->
+            <div class="slds-grid slds-grid_align-end slds-m-bottom_medium">
+                <lightning-button
+                    variant="brand"
+                    label="Copiar Prompt"
+                    title="Copiar exemplo de prompt"
+                    onclick={copiarPromptExemplo}
+                    class="slds-m-right_small"
+                    disabled={carregando}>
+                </lightning-button>
+                
+                <lightning-button
+                    variant="success"
+                    label="Gerar resposta com IA"
+                    title="Gerar resposta usando IA"
+                    onclick={gerarRespostaIA}
+                    disabled={botaoDesabilitado}
+                    icon-name="utility:sparkles">
+                </lightning-button>
+            </div>
+
+            <!-- Loading -->
+            <template if:true={carregando}>
+                <div class="slds-is-relative slds-m-bottom_medium">
+                    <lightning-spinner 
+                        alternative-text="Gerando resposta..." 
+                        size="medium">
+                    </lightning-spinner>
+                </div>
+            </template>
+
+            <!-- Resposta -->
+            <template if:true={temResposta}>
+                <div class="slds-box">
+                    <h3 class="slds-text-heading_small slds-m-bottom_small">Resposta gerada pela IA</h3>
+                    <div class="slds-box slds-theme_shade slds-p-around_medium">
+                        <lightning-formatted-text 
+                            value={respostaIA}>
+                        </lightning-formatted-text>
+                    </div>
+                </div>
+            </template>
+
+            <!-- Mensagem de Erro -->
+            <template if:true={mensagemErro}>
+                <div class="slds-box slds-theme_error slds-m-top_medium">
+                    <p class="slds-text-color_error">{mensagemErro}</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

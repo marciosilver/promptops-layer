@@ -1,0 +1,66 @@
+# ----------------------------
+# ARQUIVOS E PASTAS DO SALESFORCE
+# ----------------------------
+
+# Cache e configs locais
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# Arquivo de projeto (opcional ignorar se não for necessário versionar)
+sfdx-project.json
+
+# Arquivos de manifest e scripts auxiliares
+manifest/
+scripts/
+
+# ----------------------------
+# LWC E TESTES
+# ----------------------------
+
+# LWC autocomplete e jest
+**/lwc/jsconfig.json
+coverage/
+.eslintcache
+jest.config.js
+
+# Testes automatizados (se não quiser versionar testes)
+**/__tests__/
+
+# ----------------------------
+# CONFIGS E DEPENDÊNCIAS
+# ----------------------------
+
+# Diretórios de dependências
+node_modules/
+
+# Configs do Prettier, Husky e VSCode
+.prettier*
+.husky/
+.vscode/
+.config/
+package.json
+package-lock.json
+yarn.lock
+
+# ----------------------------
+# ARQUIVOS DO SISTEMA E TEMPORÁRIOS
+# ----------------------------
+
+.DS_Store
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+.env
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ----------------------------
+# PYTHON FUNCTIONS (caso tenha usado)
+**/__pycache__/
+**/.venv/
+**/venv/

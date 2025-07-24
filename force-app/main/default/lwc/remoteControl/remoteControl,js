@@ -1,0 +1,15 @@
+import { LightningElement } from 'lwc';
+
+export default class RemoteControl extends LightningElement {
+  handleIncrement() {
+    console.log('Increment');
+  }
+
+  handleDecrement() {
+    console.log('Decrement');
+  }
+
+  handleMultiply() {
+    console.log('Multiply');
+  }
+}

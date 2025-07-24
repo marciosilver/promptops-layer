@@ -1,0 +1,45 @@
+<template> 
+  <lightning-button label="PromptOps" onclick={handleToggle} class="slds-m-bottom_small"></lightning-button>
+
+  <template if:true={isVisible}>
+    <section class="prompt-popup slds-box slds-theme_default slds-m-top_small">
+      <h2 class="slds-text-heading_small">Prompt sugerido</h2>
+
+      <!-- Tipo de prompt -->
+      <lightning-combobox
+        name="promptType"
+        label="Tipo de prompt"
+        value={selectedPromptType}
+        placeholder="Escolha um tipo"
+        options={promptTypeOptions}
+        onchange={handlePromptTypeChange}
+        class="slds-m-bottom_small"
+      ></lightning-combobox>
+
+      <!-- Texto do prompt -->
+      <lightning-textarea
+        label="Prompt gerado"
+        value={promptText}
+        onchange={handlePromptEdit}
+        rows="6"
+        class="slds-m-bottom_small"
+      ></lightning-textarea>
+
+      <!-- Ações -->
+      <div class="slds-grid slds-grid_align-end slds-gutters slds-m-top_small">
+        <lightning-button 
+          variant="brand" 
+          label="Copiar Prompt" 
+          onclick={handleCopy}>
+        </lightning-button>
+
+        <lightning-button
+          label="Salvar Prompt"
+          title="Salvar Prompt"
+          onclick={salvarPromptLogEntry}
+          class="slds-m-left_small">
+        </lightning-button>
+      </div>
+    </section>
+  </template>
+</template>
