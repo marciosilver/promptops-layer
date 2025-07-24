@@ -8,5 +8,13 @@
         <members>promptOpsLayer</members>
         <name>LightningComponentBundle</name>
     </types>
+    <types>
+        <members>Prompt_Log__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Prompt_Log</members>
+        <name>CustomTab</name>
+    </types>
     <version>60.0</version>
 </Package>
