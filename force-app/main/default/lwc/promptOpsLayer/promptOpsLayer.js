@@ -97,7 +97,7 @@ export default class PromptOpsLayer extends LightningElement {
 
   replacePlaceholders(template, contextMap) {
     return template.replace(/{(.*?)}/g, (match, key) => {
-    return contextMap[key] || '[${key}]';
+    return contextMap[key] || `[${key}]`;
     });
   }
 
