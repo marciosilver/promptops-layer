@@ -48,7 +48,7 @@
 
 ## 📸 Captura de tela
 
-![PromptOps Layer em uso]([./docs/promptops_example.png.jpg))
+![PromptOps Layer em uso]([https://github.com/marciosilver/promptops-layer/blob/main/docs/promptops_example.png.jpg))
 
 ---
 
