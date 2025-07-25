@@ -1,18 +1,66 @@
-# Salesforce DX Project: Next Steps
+# promptops-layer
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+**PromptOps Layer** é um projeto Salesforce Lightning desenvolvido para facilitar a construção e reaproveitamento de prompts no Prompt Builder da Salesforce. Ele atua como uma camada intermediária entre usuários e registros, sugerindo prompts otimizados com base no tipo de objeto e ação realizada.
 
-## How Do You Plan to Deploy Your Changes?
+---
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## ⚙️ Funcionalidades
 
-## Configure Your Salesforce DX Project
+- Geração e edição manual de prompts com base no contexto de registros.
+- Sugestões dinâmicas de prompt com base no tipo de objeto (Case, Lead, Opportunity, Account, Contact).
+- Armazenamento em objeto customizado `Prompt_Log__c`, com:
+  - Tipo de prompt (picklist)
+  - Texto do prompt
+  - Objeto relacionado (`ObjectApiName__c`)
+  - ID do registro (`RecordId__c`)
+  - Data/hora de uso (`UsedOn__c`)
+- Botões para copiar e salvar o prompt.
+- Interface leve e responsiva em LWC.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+---
 
-## Read All About It
+## 🚀 Como instalar
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+1. Clone ou baixe este repositório.
+2. Suba os arquivos LWC e Apex para sua org usando o VS Code com Salesforce CLI.
+3. Crie os seguintes campos no objeto customizado `Prompt_Log__c`:
+
+| Field Label     | API Name         | Type              |
+|----------------|------------------|-------------------|
+| Prompt         | Prompt__c        | Long Text Area    |
+| Prompt Type    | PromptType__c    | Picklist          |
+| Record ID      | RecordId__c      | Text(18)          |
+| Used On        | UsedOn__c        | Date/Time         |
+| Object API Name| ObjectApiName__c | Text(255)         |
+
+4. Adicione o componente `promptOpsLayer` em uma Lightning Record Page (ex: Opportunity, Case etc).
+
+---
+
+## 💡 Próximas funcionalidades (em planejamento)
+
+- Marcar prompts como favoritos.
+- Exibir lista com prompts recentes do usuário.
+- Filtro por objeto e tipo de ação.
+- Exportação de prompts em massa.
+
+---
+
+## 📸 Captura de tela
+
+![PromptOps Layer em uso](docs/promptops_example.png.jpg)
+
+---
+
+## 👨‍💻 Autor
+
+Márcio Silveira  
+Desenvolvedor Salesforce  
+[LinkedIn](https://www.linkedin.com/in/marciosilveira-0873/)  
+[GitHub](https://github.com/marciosilver)
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT.
