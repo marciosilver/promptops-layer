@@ -18,6 +18,14 @@
 - Interface leve e responsiva em LWC.
 
 ---
+## Estrutura de dados
+🔸 Custom Metadata: Prompt_Config__mdt
+Field Label	API Name	Type	Descrição
+Prompt Text	Prompt_Text__c	Long Text Area	Texto-base do prompt sugerido
+Prompt Type	Prompt_Type__c	Text	Tipo do prompt (ex: Resumo, Instrução)
+Object Type	Object_Type__c	Text	Nome da API do objeto (ex: Case, Lead)
+Is Active	Is_Active__c	Checkbox	Define se a configuração está ativa
+
 
 ## 🚀 Como instalar
 
